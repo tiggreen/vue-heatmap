@@ -62,7 +62,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .vuejs-heatmap text.month-name,
 .vuejs-heatmap text.calendar-heatmap-legend-text,
 .vuejs-heatmap text.day-initial {
