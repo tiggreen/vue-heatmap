@@ -9,7 +9,7 @@ import * as d3 from 'd3'
 import { calendarHeatmap } from './calendar-heatmap.js'
 
 export default {
-  props: ['entries', 'colorRange', 'tooltipEnabled', 'tooltipUnit', 'locale', 'max', 'onClick', 'selector'],
+  props: ['entries', 'colorRange', 'tooltipEnabled', 'tooltipUnit', 'locale', 'max', 'onClick', 'selector', 'startDate'],
   name: 'vuejs-heatmap',
   mounted() {
     this.renderHeatMap()
@@ -54,6 +54,7 @@ export default {
       if( typeof this.height !== 'undefined' ) heatmap.height(this.height)
       if( typeof this.max !== 'undefined' ) heatmap.max(this.max)
       if( typeof this.onClick !== 'undefined' ) heatmap.onClick(this.onClick)
+      if( typeof this.startDate !== 'undefined' ) heatmap.startDate(this.startDate)
 
       heatmap()  // render the chart
     }
@@ -67,7 +68,7 @@ export default {
 .vuejs-heatmap text.day-initial {
   font-size: 10px;
   fill: inherit;
-  font-family: Helvetica, arial, 'Open Sans', sans-serif;
+  font-family:  -apple-system, BlinkMacSystemFont, Helvetica, arial, 'Open Sans', sans-serif;
 }
 .vuejs-heatmap rect.day-cell:hover {
   stroke: #555555;
@@ -77,14 +78,15 @@ export default {
   position: absolute;
   z-index: 9999;
   padding: 5px 9px;
-  color: #bbbbbb;
+  color: #bbbbbb !important;
   font-size: 12px;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.85) !important;
   border-radius: 3px;
   text-align: center;
 }
 .vuejs-heatmap .day-cell-tooltip > span {
-  font-family: Helvetica, arial, 'Open Sans', sans-serif
+  color: white !important;
+  font-family:  -apple-system, BlinkMacSystemFont, Helvetica, arial, 'Open Sans', sans-serif
 }
 .vuejs-heatmap .calendar-heatmap {
   box-sizing: initial;
